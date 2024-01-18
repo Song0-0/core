@@ -9,7 +9,7 @@ public class BoardDTO {
     private String regDt;
     private String modName;
     private String modDt;
-    private String views;
+    private int views;
     private String delYn;
     private String userId;
 
@@ -77,11 +77,11 @@ public class BoardDTO {
         this.modDt = modDt;
     }
 
-    public String getViews() {
+    public int getViews() {
         return views;
     }
 
-    public void setViews(String views) {
+    public void setViews(int views) {
         this.views = views;
     }
 
