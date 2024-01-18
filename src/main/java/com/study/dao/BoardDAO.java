@@ -25,13 +25,7 @@ public class BoardDAO {
         ArrayList<BoardDTO> arrBoard = new ArrayList<>();
 
         StringBuffer sql = new StringBuffer();
-        sql.append("select category, title, reg_name, views, reg_dt, mod_dt from board order by reg_dt desc");
-//join문
-//        "select c.name, b.title, b.reg_name, b.views, b.reg_dt, b.mod_dt" +
-//                "from board b" +
-//                "inner join category c" +
-//                "on c.id = b.category" +
-//                "order by reg_dt desc"
+        sql.append("select c.name as categoryName, b.title, b.reg_name, b.views, b.reg_dt, b.mod_dt from board b inner join category c on c.id = b.category order by b.reg_dt desc");
 
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -43,7 +37,7 @@ public class BoardDAO {
             rs = pstmt.executeQuery();
             while (rs.next()) {
                 BoardDTO dto = new BoardDTO();
-                dto.setCategory(rs.getInt("category"));
+                dto.setCategoryName(rs.getString("categoryName"));
                 dto.setTitle(rs.getString("title"));
                 dto.setRegName(rs.getString("reg_name"));
                 dto.setViews(rs.getInt("views"));

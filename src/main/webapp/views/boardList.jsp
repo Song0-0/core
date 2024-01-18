@@ -33,7 +33,7 @@
         for (BoardDTO e : list) {
     %>
     <tr>
-        <td><%=e.getCategory()%>
+        <td><%=e.getCategoryName()%>
         </td>
         <td><%=e.getTitle()%>
         </td>

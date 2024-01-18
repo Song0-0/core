@@ -3,6 +3,7 @@ package com.study.dto;
 public class BoardDTO {
     private int id;
     private int category;
+    private String categoryName;
     private String title;
     private String content;
     private String regName;
@@ -99,5 +100,13 @@ public class BoardDTO {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }
