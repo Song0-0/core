@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class BoardDAO {
     private static BoardDAO dao;
 
-    public BoardDAO() {
+    private BoardDAO() {
 
     }
 
@@ -25,7 +25,13 @@ public class BoardDAO {
         ArrayList<BoardDTO> arrBoard = new ArrayList<>();
 
         StringBuffer sql = new StringBuffer();
-        sql.append("select c.name as categoryName, b.title, b.reg_name, b.views, b.reg_dt, b.mod_dt from board b inner join category c on c.id = b.category order by b.reg_dt desc");
+        sql.append("" +
+                "select " +
+                "c.name as categoryName, b.title, b.reg_name, b.views, b.reg_dt, b.mod_dt " +
+                "from board b " +
+                "   inner join category c on c.id = b.category " +
+                "order by b.reg_dt desc");
+
 
         Connection con = null;
         PreparedStatement pstmt = null;
